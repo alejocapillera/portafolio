@@ -14,6 +14,7 @@
         --cielo2 :#5ce1e641;
         --texto : #000000;
         --menu : rgba(255, 255, 255, 0.8);
+        --menu1: #131313bb;
         --linea:#DBDBDB;
         }
         .dark-mode {
@@ -24,6 +25,7 @@
         --cielo2: #34495e94;
         --texto: #ecf0f1;
         --menu: #131313bb;
+        --menu1 : rgba(255, 255, 255, 0.8);
         --linea: #262626;
         }
 /* Estilo del scroll */
@@ -292,7 +294,6 @@ background-color: var(--cielo2);
 }
 
 .content2{
-    display:block;
     width:100%;
     height:200%;
     background-color:var(--fondo);
@@ -301,7 +302,14 @@ background-color: var(--cielo2);
 
 }
 
+.content3{
+    width:100%;
+    height:200%;
+    background-color:var(--fondo);
+    transition: background-color 0.3s ease, transform 0.4s ease;
+    padding-top:10%;
 
+}
 
 .post{
     width:90%;
@@ -425,7 +433,7 @@ background-color: var(--cielo2);
             background-color: transparent;
             font-size: 50px;
             cursor: pointer;
-            color:var(--texto);
+            color:var(--menu1);
             transition: background-color 0.3s ease, transform 0.4s ease;
 
         }
@@ -565,50 +573,86 @@ background-color: var(--cielo2);
             <button class="toggle-button" id="button-1">Sobre mi</button>
             <button class="toggle-button" id="button-2">Proyectos</button>
             
-            <div class="content2">
-                <div class="post">
-                    <div class="arriba">
-                        <img src="perfilmini.svg" class="miniperfil" >  
-                        <h2>Alejo Capillera🔧 <br>
-                            Participe en las olimpiadas escolares 😁🎉  <br>
-    
-                        </h2>                  
-                    </div>
-    
-                    <div class="abajo">
-                        <img src="3.png" class="imagen" >  
-                    </div>
-                </div>
 
-                <div class="post">
-                    <div class="arriba">
-                        <img src="perfilmini.svg" class="miniperfil" >  
-                        <h2>Alejo Capillera🔧 <br>
-                            Eventap !!!  <br>
 
-                        </h2>                  
-                    </div>
+            <div class="content2" style="display: none;">
+                
+    <div class="post">
+        <div class="arriba">
+            <img src="perfilmini.svg" class="miniperfil" >  
+            <h2>Alejo Capillera🔧 <br>
+                Estudio en la escuela tecnica N1 de santa teresita.🧑‍💻  <br>
 
-                    <div class="abajo">
-                        <img src="1.png" class="imagen" >  
-                    </div>
-                </div>
+            </h2>                  
+        </div>
+
+        <div class="abajo">
+            <img src="1.jpg" class="imagen" >  
+        </div>
+    </div>
+    <div class="post">
+        <div class="arriba">
+            <img src="perfilmini.svg" class="miniperfil" >  
+            <h2>Alejo Capillera🔧 <br>
+                Aca una salida con amigos! 😜  <br>
+            </h2>                  
+        </div>
+
+        <div class="abajo">
+            <img src="2.jpg" class="imagen" >  
+        </div>
+    </div>
+
+
+
             
+</div> 
 
-             <div class="post">
-                <div class="arriba">
-                    <img src="perfilmini.svg" class="miniperfil" >  
-                    <h2>Alejo Capillera🔧 <br>
-                        Programa para jardin Constancio Vigil 901  <br>
+<div class="content3" style="display: block;">
+    <div class="post">
+        <div class="arriba">
+            <img src="perfilmini.svg" class="miniperfil" >  
+            <h2>Alejo Capillera🔧 <br>
+                Participe en las olimpiadas escolares 😁🎉  <br>
 
-                    </h2>                  
-                </div>
+            </h2>                  
+        </div>
 
-                <div class="abajo">
-                    <img src="2.png" class="imagen" >  
-                </div>
-            </div>
-            
+        <div class="abajo">
+            <img src="3.png" class="imagen" >  
+        </div>
+    </div>
+
+    <div class="post">
+        <div class="arriba">
+            <img src="perfilmini.svg" class="miniperfil" >  
+            <h2>Alejo Capillera🔧 <br>
+                Eventap !!!  <br>
+
+            </h2>                  
+        </div>
+
+        <div class="abajo">
+            <img src="1.png" class="imagen" >  
+        </div>
+    </div>
+
+
+ <div class="post">
+    <div class="arriba">
+        <img src="perfilmini.svg" class="miniperfil" >  
+        <h2>Alejo Capillera🔧 <br>
+            Programa para jardin Constancio Vigil 901  <br>
+
+        </h2>                  
+    </div>
+
+    <div class="abajo">
+        <img src="2.png" class="imagen" >  
+    </div>
+</div>
+
+ 
 </div> 
     
     
@@ -661,4 +705,44 @@ document.getElementById('button-perfil').addEventListener('click', function() {
     window.scrollTo({ top: topPos, behavior: 'smooth' });
 });
 </script>
+<script>
+    // Asegúrate de que el código se ejecute después de que el DOM esté completamente cargado
+    document.addEventListener('DOMContentLoaded', function() {
+        // Selecciona los botones y los contenidos
+        const buttons = document.querySelectorAll('.toggle-button');
+        const content2 = document.querySelector('.content2');
+        const content3 = document.querySelector('.content3');
+
+        // Configuración inicial
+        if (content2 && content3) {
+            content2.style.display = 'block'; // Por defecto visible
+            content3.style.display = 'none'; // Por defecto oculto
+        } else {
+            console.error('Error: No se encontraron los elementos content2 o content3');
+        }
+
+        // Agrega el evento click a cada botón
+        buttons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remueve la clase 'active' de todos los botones
+                buttons.forEach(btn => btn.classList.remove('active'));
+
+                // Agrega la clase 'active' al botón que fue clickeado
+                this.classList.add('active');
+
+                // Mostrar/ocultar content2 y content3 según el botón clickeado
+                if (this.id === 'button-1') {
+                    content2.style.display = 'block'; // Mostrar content2
+                    content3.style.display = 'none'; // Ocultar content3
+                } else if (this.id === 'button-2') {
+                    content2.style.display = 'none'; // Ocultar content2
+                    content3.style.display = 'block'; // Mostrar content3
+                } else {
+                    console.warn('Botón desconocido clickeado');
+                }
+            });
+        });
+    });
+</script>
+
 </html>
